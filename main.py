@@ -1,16 +1,25 @@
-# This is a sample Python script.
+import logging
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from modules.speech_recognizer import SpeechRecognizer
 
 
-# Press the green button in the gutter to run the script.aaaa
+def start_log():
+    logging.info("====================================================================================================")
+    logging.info("                                          NEW RUN                                                   ")
+    logging.info("====================================================================================================")
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    # Creation of the log file
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        filename='app.log',
+        filemode='a'
+    )
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Do the speech recognition
+    speech_recognizer = SpeechRecognizer()
+    text = speech_recognizer.recognize_speech()
+    print(text)
+
