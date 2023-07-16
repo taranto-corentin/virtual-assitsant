@@ -1,0 +1,9 @@
+{
+  "virtual_assistant": {
+    "language": "EN"
+  },
+  "voices": {
+    "EN": "en-US-SteffanNeural",
+    "FR": "fr-FR-HenriNeural"
+  }
+}
