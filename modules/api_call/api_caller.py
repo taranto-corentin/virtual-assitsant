@@ -19,4 +19,12 @@ class ApiCaller:
             case ApiMethod.GET:
                 response = requests.get(self.url + query_parameters, self.headers)
 
-                return response.json()
+                status_code = response.status_code
+
+                if 200 <= status_code < 300:
+                    return response.json()
+                elif 400 <= status_code < 500:
+                    # TODO : Add error handling to make the assistant say there is a problem
+                    return 'An error occurred client side'
+                elif 500 <= status_code < 600:
+                    return 'An error occurred server side'
